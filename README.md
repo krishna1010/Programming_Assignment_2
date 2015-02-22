@@ -1,28 +1,3 @@
-# Programming_Assignment_2
+Introducción
 
-
-makeCacheMatrix <- function(x = matrix()) {
-  m<-NULL
-  set<-function(y){
-  x<<-y
-  m<<-NULL
-}
-get<-function() x
-setmatrix<-function(solve) m<<- solve
-getmatrix<-function() m
-list(set=set, get=get,
-   setmatrix=setmatrix,
-   getmatrix=getmatrix)
-}
-
-cacheSolve <- function(x=matrix(), ...) {
-    m<-x$getmatrix()
-    if(!is.null(m)){
-      message("getting cached data")
-      return(m)
-    }
-    matrix<-x$get()
-    m<-solve(matrix, ...)
-    x$setmatrix(m)
-    m
-}
+Esta segunda asignación de programación será necesario que escribir una función R es capaz de almacenar en caché los cálculos pueden requerir mucho tiempo. Por ejemplo, tomando la media de un vector numérico es típicamente una operación rápida. Sin embargo, para un vector muy largo, puede tomar mucho tiempo para calcular la media, especialmente si tiene que ser calculada repetidamente (por ejemplo, en un bucle). Si el contenido de un vector no están cambiando, puede tener sentido para almacenar en caché el valor de la media para que cuando lo necesitamos más, se puede consultar en la memoria caché en lugar de recalcula. En esta asignación Programación aprovechará las reglas de ámbito de la lengua R y cómo pueden ser manipulados para preservar el estado interior de un objeto R.
